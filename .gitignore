@@ -60,3 +60,10 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+
+.gitignore
+.directory
+.coveragerc
+peecp.egg-info
+peecp.sqlite
