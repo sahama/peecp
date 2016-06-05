@@ -1,7 +1,7 @@
 Peereesook Control Panel
 ------------------------
 this is a framework to Centralized Management for distributed system. 
-this framework use build via [pyramid](docs.pylonsproject.org/en/latest/docs/pyramid.html) framework on top of [saltmaster](https://docs.saltstack.com/en/getstarted/).
+this framework use build via `pyramid<docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ framework on top of `saltmaster<https://docs.saltstack.com/en/getstarted/>`_.
 
 Getting Started
 ---------------
@@ -17,7 +17,7 @@ Getting Started
 
 Configuration Saltstack
 -----------------------
-At now peereesook control panel use salt-api to connect saltstack and it may change to [pepper](https://github.com/saltstack/pepper).
+At now peereesook control panel use salt-api to connect saltstack and it may change to `pepper<https://github.com/saltstack/pepper>`_.
 to use salt-api install it ang add the fallowing config to salt:
 .. code-block:: 
     rest_cherrypy:
