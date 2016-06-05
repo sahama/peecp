@@ -1,4 +1,5 @@
-# Peereesook Control Panel
+Peereesook Control Panel
+------------------------
 this is a framework to Centralized Management for distributed system. 
 this framework use build via [pyramid](docs.pylonsproject.org/en/latest/docs/pyramid.html) framework on top of [saltmaster](https://docs.saltstack.com/en/getstarted/).
 
@@ -14,7 +15,8 @@ Getting Started
 
 - $VENV/bin/pserve development.ini
 
-# Configuration Saltstack
+Configuration Saltstack
+-----------------------
 At now peereesook control panel use salt-api to connect saltstack and it may change to [pepper](https://github.com/saltstack/pepper).
 to use salt-api install it ang add the fallowing config to salt:
 .. code-block:: bash
