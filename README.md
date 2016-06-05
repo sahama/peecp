@@ -17,13 +17,15 @@ Getting Started
 # Configuration Saltstack
 At now peereesook control panel use salt-api to connect saltstack and it may change to [pepper](https://github.com/saltstack/pepper).
 to use salt-api install it ang add the fallowing config to salt:
-`rest_cherrypy:`
-`    port: 8080`
-`    disable_ssl: True`
-`    host: 0.0.0.0`
+.. code-block:: bash
+    rest_cherrypy:
+        port: 8080
+        disable_ssl: True
+        host: 0.0.0.0
 
 and add user with username admin in os and add the following config to add access for this user:
-`external_auth:`
-`  pam:`
-`    admin:`
-`      - .*`
+.. code-block:: bash
+  external_auth:
+    pam:
+      admin:
+        - .*
