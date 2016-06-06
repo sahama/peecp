@@ -1,7 +1,7 @@
 Peereesook Control Panel
 ------------------------
 this is a framework to Centralized Management for distributed system. 
-this framework use build via `pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ framework on top of `saltmaster<https://docs.saltstack.com/en/getstarted/>`_.
+this framework use build via `pyramid <http://docs.pylonsproject.org/en/latest/docs/pyramid.html>`_ on top of `saltmaster <https://docs.saltstack.com/en/getstarted/>`_.
 
 Getting Started
 ---------------
@@ -31,3 +31,12 @@ and add user with username admin in os and add the following config to add acces
     pam:
       admin:
         - .*
+
+Adding user
+-----------
+in your OS (tested on debian GNU/Linux 8) add admin user
+.. code-block::
+  adduser admin
+and set password for this user.
+
+now you can login to peecp via this user and password.
