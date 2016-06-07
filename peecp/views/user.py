@@ -75,7 +75,7 @@ class UserVeiw():
         return HTTPFound(location=self.request.route_url('home'), headers=headers)
 
 
-    @view_config(route_name='change_password', renderer='templates/change_password.jinja2',permission='user')
+    @view_config(route_name='change_password', renderer='templates/change_password.jinja2',permission='admin')
     def change_password_view(self):
         if 'submit' in self.request.POST:
             new_password = self.request.POST.get('new_password', '')

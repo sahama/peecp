@@ -15,7 +15,7 @@ tsf = TranslationStringFactory('preecp')
 
 LOCALES = ('fa', 'en')
 
-
+# NOTICE: we use it in later to get lang from database
 def custom_locale_negotiator(request):
     """ The :term:`custom locale negotiator`. Returns a locale name.
 
