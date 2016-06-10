@@ -12,6 +12,7 @@ from pyramid.view import view_defaults
 from ..models.salt import SaltApi
 from ..models.message import Message
 
+from ..bower import components
 @view_defaults()
 class UserVeiw():
     def __init__(self, context, request):
@@ -22,6 +23,7 @@ class UserVeiw():
         if 'salt' in self.request.session:
             token = self.request.session['salt'].get('token', None)
         self.salt = SaltApi(token=token)
+        request.include(components, 'bootstrap-rtl')
 
     @view_config(route_name='login', renderer='templates/login.jinja2')
     def login_view(self):
