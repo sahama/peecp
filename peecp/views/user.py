@@ -23,7 +23,15 @@ class UserVeiw():
         if 'salt' in self.request.session:
             token = self.request.session['salt'].get('token', None)
         self.salt = SaltApi(token=token)
-        request.include(components, 'bootstrap-rtl')
+        _ = self.request.translate
+        direction = _('direction')
+
+
+        if direction == 'rtl':
+            request.include(components, 'bootstrap-rtl')
+        else:
+            request.include(components, 'bootstrap')
+
 
     @view_config(route_name='login', renderer='templates/login.jinja2')
     def login_view(self):

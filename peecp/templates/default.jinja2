@@ -2,12 +2,7 @@
 
 {% block content %}
 <div class="content">
-    {% if user %}
-        {{ _('hello') }}{{ user }} <a href="{{ request.route_url('logout') }}">logout</a> <a href="{{ request.route_url('change_password') }}">change_password</a>
-        {% else %}
-        <a href="{{ request.route_url('login') }}">login</a>
-    {% endif %}
-  <h1>Peereesook Project</h1>
-  <p class="lead">Welcome to <span class="font-normal">{{project}}</span>, an&nbsp;application generated&nbsp;by<br>the <span class="font-normal">Pyramid Web Framework 1.7</span>.</p>
+  <h1>{{ _('PEECP_SITE_TITLE') }}
+  <p class="lead">{{ _('PEECP_WEELCOME_MESSAGE') }}</p>
 </div>
 {% endblock content %}

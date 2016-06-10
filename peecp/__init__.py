@@ -31,7 +31,8 @@ def main(global_config, **settings):
     config.include('pyramid_bowerstatic')
     config.include('.models')
     config.include('.routes')
+    config.include('.i18n')
     config.scan()
-    # config.scan('.i18n')
+    config.commit()
 
     return config.make_wsgi_app()

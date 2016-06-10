@@ -11,7 +11,7 @@ from pyramid.response import Response
 from pyramid.httpexceptions import HTTPFound
 from pyramid.threadlocal import get_current_request
 
-tsf = TranslationStringFactory('preecp')
+tsf = TranslationStringFactory('peecp')
 
 LOCALES = ('fa', 'en')
 
@@ -48,7 +48,6 @@ def custom_locale_negotiator(request):
                     # If browser has no language configuration
                     # the default locale name is returned.
                     locale_name = request.registry.settings.default_locale_name
-    # print(locale_name)
     return locale_name
 
 
@@ -75,13 +74,16 @@ def add_localizer(event):
     request.translate = auto_translate
 
 
-# @view_config(route_name='locale')
-# def set_locale_cookie(request):
-#     if request.GET['language']:
-#         language = request.GET['language']
-#         response = Response()
-#         response.set_cookie('_LOCALE_',
-#                             value=language,
-#                             max_age=31536000)  # max_age = year
-#     return HTTPFound(location='/',
-#                      headers=response.headers)
+@view_config(route_name='locale')
+def set_locale_cookie(request):
+    if request.GET['language']:
+        language = request.GET['language']
+        response = Response()
+        response.set_cookie('_LOCALE_',
+                            value=language,
+                            max_age=31536000)  # max_age = year
+    return HTTPFound(location='/',
+                     headers=response.headers)
+
+def includeme(config):
+    config.add_route('locale', '/locale')

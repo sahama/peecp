@@ -1,0 +1,64 @@
+# Translations template for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# hamid <hamid@debian>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-06-10 16:42+0000\n"
+"PO-Revision-Date: 2016-06-10 18:15-0000\n"
+"Last-Translator: Sayyid Hamid Mahdavi <s.h.mahdavi@chmail.ir>\n"
+"Language-Team: Persian\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+"X-Generator: Poedit 1.6.10\n"
+
+#: peecp/templates/default.jinja2:5 peecp/templates/main.jinja2:11
+#: peecp/templates/main.jinja2:30
+msgid "PEECP_SITE_TITLE"
+msgstr "سامانه کنترل متمرکز پیریسوک"
+
+#: peecp/templates/default.jinja2:6
+msgid "PEECP_WEELCOME_MESSAGE"
+msgstr "به این سامانه خوش آمدید"
+
+#: peecp/templates/main.jinja2:37
+msgid "PEECP_VIEW_HOME_TITLE"
+msgstr "خانه"
+
+#: peecp/templates/main.jinja2:38
+msgid "PEECP_VIEW_ABOUT_TITLE"
+msgstr "درباره‌ی ما"
+
+#: peecp/templates/main.jinja2:39
+msgid "PEECP_VIEW_CONTACT_TITLE"
+msgstr "تماس با ما"
+
+#: peecp/templates/main.jinja2:47
+msgid "PEECP_HELLO_USER"
+msgstr "خوش‌آمدید"
+
+#: peecp/templates/main.jinja2:47
+msgid "PEECP_LOGOUT"
+msgstr "خروج"
+
+#: peecp/templates/main.jinja2:47
+msgid "PEECP_CHANGE_PASSWORD"
+msgstr "تغییر گذرواژه"
+
+#: peecp/templates/main.jinja2:49
+msgid "PEECP_LOGIN"
+msgstr "ورود"
+
+#: peecp/templates/main.jinja2:54
+msgid "PEECP_NO_CONTENT"
+msgstr "متنی برای نمایش وجود ندارد"
+
+#: peecp/views/user.py:27
+msgid "direction"
+msgstr "rtl"
