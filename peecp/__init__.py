@@ -28,6 +28,7 @@ def main(global_config, **settings):
 
 
     config.include('pyramid_jinja2')
+    config.include('pyramid_bowerstatic')
     config.include('.models')
     config.include('.routes')
     config.scan()

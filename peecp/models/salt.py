@@ -75,7 +75,7 @@ class SaltApi():
                   'password': password,
                   'eauth'   : self.eauth}
         )
-        print("gfdgfds")
+
         print(req.content)
 
         if req.ok:
