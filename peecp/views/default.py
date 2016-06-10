@@ -11,5 +11,5 @@ from ..models import MyModel
 @view_config(route_name='home', renderer='../templates/default.jinja2')
 def my_view(request=request): # request=requesr is just for autocomplete
     user = request.authenticated_userid
-    request.include(components, 'jquery')
+    request.include(components, 'bootstrap-rtl')
     return {'user': user}

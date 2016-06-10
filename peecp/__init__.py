@@ -32,6 +32,6 @@ def main(global_config, **settings):
     config.include('.models')
     config.include('.routes')
     config.scan()
-    config.scan('.i18n')
+    # config.scan('.i18n')
 
     return config.make_wsgi_app()
