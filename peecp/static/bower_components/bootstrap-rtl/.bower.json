@@ -29,7 +29,7 @@
     "commit": "7f55872a4068f28232a80881ca1fcc6f6014afab"
   },
   "_source": "https://github.com/morteza/bootstrap-rtl.git",
-  "_target": "^3.4.0",
+  "_target": "~3.4.0",
   "_originalSource": "bootstrap-rtl",
   "_direct": true
 }
