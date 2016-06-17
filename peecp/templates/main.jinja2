@@ -51,6 +51,8 @@
         <a href="{{ request.route_url('login') }}">{{ _('PEECP_LOGIN') }}</a>
     {% endif %}
 
+    {{ rendered_messages | safe }}
+
 
            {% block content %}
                 <p>{{ _('PEECP_NO_CONTENT') }}</p>

@@ -1,18 +1,17 @@
+from pyramid.httpexceptions import (
+    HTTPFound
+)
 from pyramid.security import (
     remember,
     forget
 )
-
-from pyramid.httpexceptions import (
-    HTTPFound
-)
 from pyramid.view import view_config
 from pyramid.view import view_defaults
 
+from peecp.message import Message
 from ..models.salt import SaltApi
-from ..models.message import Message
 
-from ..bower import components
+
 @view_defaults()
 class UserVeiw():
     def __init__(self, context, request):

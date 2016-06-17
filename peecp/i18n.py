@@ -86,4 +86,6 @@ def set_locale_cookie(request):
                      headers=response.headers)
 
 def includeme(config):
+    config.add_translation_dirs('peecp:locale')
+    config.set_locale_negotiator(custom_locale_negotiator)
     config.add_route('locale', '/locale')

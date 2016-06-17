@@ -3,7 +3,6 @@ from pyramid.session import SignedCookieSessionFactory
 from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid.authentication import SessionAuthenticationPolicy
 from .factory import group_finder, RootFactory
-from .i18n import custom_locale_negotiator
 
 authn_policy = SessionAuthenticationPolicy(callback=group_finder)
 authz_policy = ACLAuthorizationPolicy()
@@ -22,9 +21,6 @@ def main(global_config, **settings):
     config.set_authentication_policy(authn_policy)
     config.set_authorization_policy(authz_policy)
 
-    config.add_translation_dirs('peecp:locale')
-
-    config.set_locale_negotiator(custom_locale_negotiator)
 
     from .bower import components
     config.include('pyramid_jinja2')
@@ -32,6 +28,7 @@ def main(global_config, **settings):
     config.include('.models')
     config.include('.routes')
     config.include('.i18n')
+    config.include('.message')
     config.scan()
     config.commit()
 

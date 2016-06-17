@@ -10,9 +10,6 @@ from pyramid.i18n import TranslationString
 
 @view_config(route_name='home', renderer='../templates/default.jinja2')
 def my_view(request=request): # request=requesr is just for autocomplete
-    # ts = TranslationString('direction', domain='peecp')
-    # localizer = request.localizer
-    # translated = localizer.translate(ts)
-    # print(ts, localizer, translated)
     user = request.authenticated_userid
+    request.message.add('hello',source='main')
     return {'user': user}
