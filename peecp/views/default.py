@@ -14,12 +14,5 @@ def my_view(request=request): # request=requesr is just for autocomplete
     # localizer = request.localizer
     # translated = localizer.translate(ts)
     # print(ts, localizer, translated)
-    _ = request.translate
-    direction = _('direction')
-
-    if direction == 'rtl':
-        request.include(components, 'bootstrap-rtl')
-    else:
-        request.include(components, 'bootstrap')
     user = request.authenticated_userid
     return {'user': user}

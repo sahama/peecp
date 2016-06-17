@@ -2,7 +2,7 @@ from pyramid.config import Configurator
 from pyramid.session import SignedCookieSessionFactory
 from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid.authentication import SessionAuthenticationPolicy
-from .security import group_finder, RootFactory
+from .factory import group_finder, RootFactory
 from .i18n import custom_locale_negotiator
 
 authn_policy = SessionAuthenticationPolicy(callback=group_finder)
@@ -26,7 +26,7 @@ def main(global_config, **settings):
 
     config.set_locale_negotiator(custom_locale_negotiator)
 
-
+    from .bower import components
     config.include('pyramid_jinja2')
     config.include('pyramid_bowerstatic')
     config.include('.models')

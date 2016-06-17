@@ -1,5 +1,5 @@
 from pyramid.security import Allow, Everyone, Deny, authenticated_userid
-
+from .bower import components
 def group_finder(userid, request):
 
     # TODO: add some code to add authz
@@ -22,3 +22,13 @@ class RootFactory(object):
 
     def __init__(self, request):
         self.request = request
+
+        _ = request.translate
+        direction = _('direction')
+
+        if direction == 'rtl':
+            request.include(components, 'bootstrap-rtl')
+        else:
+            request.include(components, 'bootstrap')
+
+
