@@ -60,6 +60,14 @@ class Message():
     # def __str__(self):
     #     return self.__repr__()
 
+class Safe(str):
+    # get from pyramid_layput
+    # Wrapping a string in this class avoids having to prefix the value
+    # with `structure` in TAL
+
+    def __html__(self):
+        return self
+
 
 @subscriber(NewRequest)
 def add_message(event):
@@ -87,7 +95,7 @@ aria-hidden="true">&times;</span></button>
                 source=_(message['source']),
                 body=_(message['body'], mapping=message['mapping'])
             )
-        return body
+        return Safe(body)
     m = bootstrap_renderer(messages)
     print(m)
     event['rendered_messages'] = m
