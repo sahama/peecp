@@ -9,7 +9,7 @@ from ..models import MyModel
 from pyramid.i18n import TranslationString
 
 @view_config(route_name='home', renderer='../templates/default.jinja2')
-def my_view(request=request): # request=requesr is just for autocomplete
+def my_view(context, request=request): # request=requesr is just for autocomplete
     user = request.authenticated_userid
-    request.message.add('hello',source='main')
+    context.message.add('hello',source='main')
     return {'user': user}

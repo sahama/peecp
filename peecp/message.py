@@ -1,22 +1,22 @@
 from pyramid.events import subscriber
 from pyramid.events import NewRequest
 from pyramid.events import BeforeRender
+from pyramid.events import ContextFound
 
 
-
-class Message():
+class Message:
     danger = 'danger'
     warning = 'warning'
     info = 'info'
     success = 'success'
     default = 'default'
 
-    def __init__(self, body='', message_type=info, source='', user=None, request=None, mapping={}):
+    def __init__(self, body='', message_type=info, source='', user=None, request=None, mapping=None):
         self.type = message_type
         self.body = body
         self.source = source
         self.request = request
-        self.mapping = {}
+        self.mapping = mapping
         if user:
             self.user = user
         elif request:
@@ -43,22 +43,14 @@ class Message():
             self.mapping = mapping
         self.body = body
 
-        self.request.session.flash({"type": self.type, 'source': self.source, 'user': self.user, 'body': self.body, 'mapping': self.mapping})
+        self.request.session.flash(
+            {"type": self.type,
+             'source': self.source,
+             'user': self.user,
+             'body': self.body,
+             'mapping': self.mapping}
+        )
 
-    # def __repr__(self):
-    #
-    #     # return 'source:{0} ip:{4} type:{1} user:{2} message:{3}'.format(
-    #     return '{0} {1} {2} {3} {4} {5}'.format(
-    #         self.source,
-    #         self.type,
-    #         self.user,
-    #         self.body,
-    #         self.translated_mapping,
-    #         (lambda x : x.remote_addr if x else '')(self.request)
-    #     )
-
-    # def __str__(self):
-    #     return self.__repr__()
 
 class Safe(str):
     # get from pyramid_layput
@@ -75,36 +67,38 @@ def add_message(event):
     message = Message(request=request)
     request.message = message
 
+
+@subscriber(ContextFound)
+def add_message_context(event):
+    request = event.request
+    request.context.message = request.message
+
+
 @subscriber(BeforeRender)
 def render_messages(event):
     request = event.get('request')
     messages = request.session.pop_flash()
     event['messages'] = request.session.pop_flash()
 
-    def bootstrap_renderer(messages):
+    def bootstrap_renderer():
         _ = request.translate
         message_template = """<div class="alert alert-small alert-{type}" role="alert">
 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
 aria-hidden="true">&times;</span></button>
-<b style="font-size: larger">{source}</b>: {body}
+<b style="font-size: larger">{source}</b> {body}
 </div>"""
         body = ''
         for message in messages:
             body += message_template.format(
                 type=message['type'],
-                source=_(message['source']),
+                source=_(message['source']) if message['source'] else '',
                 body=_(message['body'], mapping=message['mapping'])
             )
         return Safe(body)
-    m = bootstrap_renderer(messages)
-    print(m)
-    event['rendered_messages'] = m
+
+    event['flash_messages'] = bootstrap_renderer()
 
 
 def includeme(config):
-    # TODO: an action to requierd transtation
+    # TODO: an action to required transtation
     pass
-
-
-
-

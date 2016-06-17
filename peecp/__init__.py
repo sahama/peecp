@@ -25,10 +25,12 @@ def main(global_config, **settings):
     from .bower import components
     config.include('pyramid_jinja2')
     config.include('pyramid_bowerstatic')
+    config.include('pyramid_layout')
     config.include('.models')
     config.include('.routes')
     config.include('.i18n')
     config.include('.message')
+    config.scan('.panels')
     config.scan()
     config.commit()
 

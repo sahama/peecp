@@ -23,12 +23,4 @@ class RootFactory(object):
     def __init__(self, request):
         self.request = request
 
-        _ = request.translate
-        direction = _('direction')
-
-        if direction == 'rtl':
-            request.include(components, 'bootstrap-rtl')
-        else:
-            request.include(components, 'bootstrap')
-
 

@@ -1,0 +1,6 @@
+<footer class="footer">
+    <div class="container">
+        <div class="text-muted {{ 'left' if _('direction') == 'ltr' else 'right' }}"> {{ _('footer')|safe }} </div>
+        <div class="text-muted {% if _('direction') == 'ltr' %}right{% else %}left{% endif %}"> {{ _('version') }}: &lrm;{{ context.version }}&lrm; </div>
+    </div>
+</footer>

@@ -19,6 +19,7 @@ requires = [
     'waitress',
     'requests',
     'pyramid_bowerstatic',
+    'pyramid_layout',
 ]
 
 tests_require = [
