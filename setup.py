@@ -18,13 +18,14 @@ requires = [
     'zope.sqlalchemy',
     'waitress',
     'requests',
-    ]
+    'pyramid_bowerstatic',
+]
 
 tests_require = [
     'WebTest >= 1.3.1',  # py3 compat
     'pytest',  # includes virtualenv
     'pytest-cov',
-    ]
+]
 
 setup(name='peecp',
       version='0.0',
