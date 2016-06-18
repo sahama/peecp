@@ -41,7 +41,10 @@ footer * > a:active {
 .right {
     float: right;
 }
+.navbar-form {
+    margin-left: -15px;
 
+}
 
 /*@import url(//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);*/
 /*body {*/

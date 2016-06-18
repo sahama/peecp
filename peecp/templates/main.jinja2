@@ -13,6 +13,8 @@
     <title>{{ _('PEECP_SITE_TITLE') }}</title>
 </head>
 <body>
+    <link rel="stylesheet" type="text/css" href="{{ request.static_url('peecp:static/theme.css') }}">
+
 <style>
     body {
         padding-top: 50px;
@@ -43,14 +45,8 @@
                 <li><a href="{{ request.route_path('home') }}">{{ _('PEECP_VIEW_CONTACT_TITLE') }}</a></li>
             </ul>
 
+            {{ panel('user_menu', user=user) }}
             {{ panel('language_selector') }}
-            {% if user %}
-        {{ _('PEECP_HELLO_USER') }}{{ user }} <a href="{{ request.route_url('logout') }}">{{ _('PEECP_LOGOUT') }}</a>
-        <a href="{{ request.route_url('change_password') }}">{{ _('PEECP_CHANGE_PASSWORD') }}</a>
-    {% else %}
-        <a href="{{ request.route_url('login') }}">{{ _('PEECP_LOGIN') }}</a>
-    {% endif %}
-
 
 
         </div><!--/.nav-collapse -->

@@ -88,15 +88,15 @@ def add_localizer(event):
 
 
 # @view_config(route_name='locale')
-def set_locale_cookie(request):
-    if 'language' in request.GET:
-        language = request.GET['language']
-        response = Response()
-        response.set_cookie('_LOCALE_',
-                            value=language,
-                            max_age=31536000)  # max_age = year
-    return HTTPFound(location='/',
-                     headers=response.headers)
+# def set_locale_cookie(request):
+#     if 'language' in request.GET:
+#         language = request.GET['language']
+#         response = Response()
+#         response.set_cookie('_LOCALE_',
+#                             value=language,
+#                             max_age=31536000)  # max_age = year
+#     return HTTPFound(location='/',
+#                      headers=response.headers)
 
 
 # class MyRequest(Request):

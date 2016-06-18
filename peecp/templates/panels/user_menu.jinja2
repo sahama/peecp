@@ -1,0 +1,28 @@
+{#<ul class="nav navbar-nav navbar-{{ 'left' if _('direction') == 'rtl' else 'right' }}">#}
+{#    {% for lang in langs %}#}
+{#        <li><a href="?_LOCALE_={{ lang }}">{{ lang }}</a></li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+<ul class="nav navbar-nav navbar-{{ 'left' if _('direction')=='rtl' else 'right' }}">
+<li>
+<div class="navbar-form btn-group ">
+    {% if user %}
+
+        <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> {{ user }}</a>
+        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+            <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ request.route_url('logout') }}"><i class="fa fa-pencil fa-fw"></i> {{ _('PEECP_LOGOUT') }}
+            </a></li>
+            <li><a href="{{ request.route_url('change_password') }}"><i
+                    class="fa fa-pencil fa-fw"></i> {{ _('PEECP_CHANGE_PASSWORD') }}</a></li>
+        </ul>
+
+    {% else %}
+        <a class="btn btn-primary" href="{{ request.route_url('login') }}"><i
+                class="fa fa-user fa-fw"></i> {{ _('PEECP_LOGIN') }}</a>
+    {% endif %}
+</div>
+</li>
+</ul>

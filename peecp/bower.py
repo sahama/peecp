@@ -18,6 +18,9 @@ def render_messages(event):
         request.include(components, 'bootstrap-rtl')
     else:
         request.include(components, 'bootstrap')
+    request.include(components, 'font-awesome')
+
+
 
 
 #
