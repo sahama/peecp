@@ -41,20 +41,23 @@
                 <li class="active"><a href="{{ request.route_path('home') }}">{{ _('PEECP_VIEW_HOME_TITLE') }}</a></li>
                 <li><a href="{{ request.route_path('home') }}">{{ _('PEECP_VIEW_ABOUT_TITLE') }}</a></li>
                 <li><a href="{{ request.route_path('home') }}">{{ _('PEECP_VIEW_CONTACT_TITLE') }}</a></li>
-                <li><a href="{{ request.route_path('locale') }}?language=fa">{{ _('PEECP_VIEW_I18N_FA') }}</a></li>
-                <li><a href="{{ request.route_path('locale') }}?language=en">{{ _('PEECP_VIEW_I18N_EN') }}</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
 
-<div class="container">
-    {% if user %}
+            {{ panel('language_selector') }}
+            {% if user %}
         {{ _('PEECP_HELLO_USER') }}{{ user }} <a href="{{ request.route_url('logout') }}">{{ _('PEECP_LOGOUT') }}</a>
         <a href="{{ request.route_url('change_password') }}">{{ _('PEECP_CHANGE_PASSWORD') }}</a>
     {% else %}
         <a href="{{ request.route_url('login') }}">{{ _('PEECP_LOGIN') }}</a>
     {% endif %}
+
+
+
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
 
     {{ flash_messages }}
 

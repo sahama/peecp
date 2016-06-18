@@ -1,0 +1,5 @@
+<ul class="nav navbar-nav navbar-{{ 'left' if _('direction') == 'rtl' else 'right' }}">
+    {% for lang in langs %}
+    <li><a href="?_LOCALE_={{ lang }}">{{ lang }}</a></li>
+    {% endfor %}
+</ul>

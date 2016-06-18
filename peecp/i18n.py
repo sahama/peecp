@@ -10,6 +10,8 @@ from pyramid.view import view_config
 from pyramid.response import Response
 from pyramid.httpexceptions import HTTPFound
 from pyramid.threadlocal import get_current_request
+from pyramid.request import Request
+
 
 tsf = TranslationStringFactory('peecp')
 
@@ -68,15 +70,26 @@ def add_localizer(event):
     request = event.request
     localizer = get_localizer(request)
 
+    if '_LOCALE_' in request.GET:
+        language = request.GET['_LOCALE_']
+        print('lang is ', language)
+        response = request.response
+        response.set_cookie('_LOCALE_',
+                            value=language,
+                            max_age=31536000)
+
+
     def auto_translate(string, mapping=None, domain=None):
         return localizer.translate(tsf(string),mapping=mapping, domain=domain)
     request.localizer = localizer
     request.translate = auto_translate
 
 
-@view_config(route_name='locale')
+
+
+# @view_config(route_name='locale')
 def set_locale_cookie(request):
-    if request.GET['language']:
+    if 'language' in request.GET:
         language = request.GET['language']
         response = Response()
         response.set_cookie('_LOCALE_',
@@ -85,7 +98,13 @@ def set_locale_cookie(request):
     return HTTPFound(location='/',
                      headers=response.headers)
 
+
+# class MyRequest(Request):
+#     pass
+
+
 def includeme(config):
     config.add_translation_dirs('peecp:locale')
     config.set_locale_negotiator(custom_locale_negotiator)
-    config.add_route('locale', '/locale')
+    # config.set_request_factory(MyRequest)
+    # config.add_route('locale', '/locale')
