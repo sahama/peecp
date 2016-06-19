@@ -18,18 +18,14 @@ Getting Started
 Configuration SaltStack Minions
 ---------------------
 in minions create /etc/salt/minion.d/master.conf add this line
-.. code-block::yaml
     master: <YOUR SALT MASTER IP>
 for example
-.. code-block::yaml
     master: 127.0.0.1
 
 and restart minion service via
-.. code-block::bash
     service salt-minion restart
 
 add minion key to master in master
-.. code-block::bash
     salt-key -A
 
 and accept all keys
@@ -37,15 +33,14 @@ and accept all keys
 Configuration Saltstack Master
 -----------------------
 At now peereesook control panel use salt-api to connect saltstack and it may change to `pepper <https://github.com/saltstack/pepper>`_.
-to use salt-api install it ang add the fallowing config to salt:
-.. code-block::yaml
+to use salt-api install it ang add the fallowing config to salt.
+
     rest_cherrypy:
         port: 8080
         disable_ssl: True
         host: 0.0.0.0
 
-and add user with username admin in os and add the following config to add access for this user:
-.. code-block::yaml
+and add user with username admin in os and add the following config to add access for this user.
     external_auth:
         pam:
             admin:
@@ -55,7 +50,6 @@ and add user with username admin in os and add the following config to add acces
 Adding user
 -----------
 in your OS (tested on debian GNU/Linux 8) add admin user
-.. code-block::bash
   adduser admin
 and set password for this user.
 
