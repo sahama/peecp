@@ -45,7 +45,7 @@
                 <li><a href="{{ request.route_path('home') }}">{{ _('PEECP_VIEW_CONTACT_TITLE') }}</a></li>
             </ul>
 
-            {{ panel('user_menu', user=user) }}
+            {{ panel('user_menu', user=context.user) }}
             {{ panel('language_selector') }}
 
 

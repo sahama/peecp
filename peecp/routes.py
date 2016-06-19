@@ -5,3 +5,5 @@ def includeme(config):
     config.add_route('logout', '/logout')
     config.add_route('change_password', '/change_password')
 
+    config.add_route('minions', '/minions')
+

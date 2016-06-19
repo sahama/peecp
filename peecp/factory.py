@@ -22,7 +22,9 @@ class RootFactory(object):
 
     def __init__(self, request):
         self.request = request
+        self.user = request.authenticated_userid
 
     version = "0.0.1"
+
 
 
