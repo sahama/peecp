@@ -11,6 +11,6 @@ from pyramid.i18n import TranslationString
 @view_config(route_name='home', renderer='../templates/default.jinja2')
 def my_view(context, request=request): # request=requesr is just for autocomplete
     user = request.authenticated_userid
-    context.message.add('hello',source='main')
+    # context.message.add('hello',source='main')
     # print(request.session)
     return {'user': user}

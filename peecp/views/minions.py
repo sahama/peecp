@@ -22,6 +22,6 @@ class MinionsView():
         self.salt = SaltApi(self.request.session['salt']['token'])
     @view_config()
     def main(self):
-        minions = self.salt.run('test.ping')
+        minions = self.salt.run('test.ping')['return'][0]
         print(minions)
         return {'minions': minions}

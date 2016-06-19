@@ -3,6 +3,22 @@
 {% block content %}
 <div class="content">
   <h1>{{ _('MINIONS_PAGE_TITLE') }}</h1>
-  <p class="lead">{{ minions }}</p>
+    <table class="table">
+        <tr>
+            <th>minion</th>
+            <th>state</th>
+        </tr>
+    {% for minion in minions %}
+    <tr>
+        <td>
+            {{ minion }}
+        </td>
+        <td>
+            {{ minions[minion] }}
+        </td>
+    </tr>
+
+        {% endfor %}
+    </table>
 </div>
 {% endblock content %}
