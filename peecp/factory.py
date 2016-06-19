@@ -24,7 +24,7 @@ class RootFactory(object):
         self.request = request
         self.user = request.authenticated_userid
 
-    version = "0.0.1"
+    version = "0.0.2"
 
 
 
